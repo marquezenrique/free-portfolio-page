@@ -1,0 +1,202 @@
+@primary-rgb: 90, 155, 219;
+@primary: rgb(@primary-rgb);
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+  border: none;
+  font-family: "Epilogue", Arial, Helvetica, sans-serif;
+  transition: all 0.5s ease-in-out;
+}
+
+html {
+  padding-top: 80px;
+  min-height: 400dvh;
+  background: #f4f4f4;
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+header {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  height: 80px;
+  background: #efefef;
+  border-bottom: 2px solid #0000000d;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100vw;
+  max-width: 1440px;
+  padding: 0 6rem;
+}
+
+header #title {
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #111111;
+}
+
+header #title span {
+  font-weight: 600;
+  color: @primary;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav a {
+  color: #111111;
+  text-decoration: none;
+  position: relative;
+}
+
+header nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: @primary;
+  transition: width 0.2s ease-in-out;
+}
+
+header nav a:hover::before {
+  width: 100%;
+}
+
+header nav a {
+  transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+  color: @primary;
+}
+
+header nav a:not(:hover)::before {
+  width: 0%;
+  right: 0;
+}
+
+#hero {
+  --size: 51.6px;
+  --color: #edebeb;
+  width: 100vw;
+  min-height: calc(100dvh - 80px);
+  background-image: linear-gradient(var(--color) 0.1em, transparent 0.1em),
+    linear-gradient(90deg, var(--color) 0.1em, transparent 0.1em);
+  background-size: var(--size) var(--size);
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+#hero #content {
+  transform: translateY(-35px);
+  height: 100%;
+  width: 100vw;
+  max-width: 1440px;
+  padding: 0 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#hero #presentation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 490px;
+  gap: 12px;
+}
+
+#hero #presentation h1 {
+  font-size: 45px;
+  color: #171717;
+}
+
+#hero #presentation p {
+  font-size: 20px;
+  color: rgb(100, 100, 100);
+  font-weight: 500;
+}
+
+#hero #presentation button {
+  margin-top: 12px;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  height: 60px;
+  width: 180px;
+  outline: 0;
+  border: 2px solid #111111;
+  cursor: pointer;
+  position: relative;
+  background-color: #11111100;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 6px;
+}
+
+#hero #presentation button:hover {
+  letter-spacing: 0;
+}
+
+#hero #presentation button:after {
+  content: "";
+  background-color: @primary;
+  width: 100%;
+  z-index: -2;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  right: 7px;
+  transition: 0.35s ease;
+  border-radius: 6px;
+}
+
+#hero #presentation button:hover:after {
+  border-radius: 4px;
+  top: 0px;
+  right: 0px;
+}
+
+#hero #vector {
+  height: 400px;
+}
+
+#transition {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  & path {
+    fill: @primary;
+  }
+}
+
+#about {
+  height: 40svh;
+  background: @primary;
+  width: 100vw;
+}
